@@ -170,6 +170,22 @@
 	};
 };
 
+&spi0 {
+	status = "okay";
+
+	w25q32dw@0 {
+		#address-cells = <1>;
+		#size-cells = <1>;
+		compatible = "jedec,spi-nor";
+		reg = <0>;
+		spi-max-frequency = <104000000>;
+		m25,fast-read;
+
+		pinctrl-names = "default";
+		pinctrl-0 = <&spi_quad_pins>;
+	};
+};
+
 &pcie0 {
 	status = "okay";
 	reset-gpios = <&gpio_sb 3 GPIO_ACTIVE_HIGH>;
